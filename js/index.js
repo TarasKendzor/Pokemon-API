@@ -11,15 +11,29 @@ function render(entries) {
             let rend = document.createElement('div');
             rend.classList.add('pokemon-wrapper', el.types[0].type.name)
             let blockContent = parentDiv.appendChild(rend);
-
+            let secondType = el.types[1];
+            if (secondType != undefined) {
+              secondType = el.types[1].type.name;
+            }
+              
             blockContent.innerHTML = `
          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"> 
             <img src="${el.sprites.front_shiny}">
-               <p class ="text-center item-name">${el.name} </p>
-               <p class ="text-center item-type"><span class="${el.types[0].type.name}">${el.types[0].type.name}</span>  </p>
+               <p class ="mx-auto text-center item-name">${el.name} </p>
+               <p class ="mx-auto text-center item-type">
+                  <span class="${el.types[0].type.name} ">${el.types[0].type.name}</span>
+                  <span  class="${secondType} type-select">${secondType}</span> 
+                </p>
                
          </div>
         `
+        let typeSelect = document.getElementsByClassName('type-select');
+             for (let i =0; i < typeSelect.length; i++) {
+              if ( typeSelect[i].innerHTML === 'undefined') {
+                      typeSelect[i].innerHTML = '';
+                  }
+                }
+
             rend.addEventListener('click', function() {
                 this.getElementsByClassName('item-name');
                 let SinglePokRender = document.getElementById('single-wrapper')

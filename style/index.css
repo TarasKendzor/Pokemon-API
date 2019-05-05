@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    box-sizing: content-box;
+    box-sizing: border-box;
     margin: 0px auto;
     padding: 0px;
 }
@@ -46,6 +46,9 @@ table, td,th ,tr {
     position: fixed;
     top: 20%;
     left: 35%;
+}
+.item-type {
+ display: flex;
 }
 
 span {
