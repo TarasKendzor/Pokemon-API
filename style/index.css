@@ -149,6 +149,11 @@ span.dragon {
     background-color: #7038F8;
     border: 1px solid #4924A1;
 }
+@media screen and (min-width: 1200px) {
+    #button {
+        margin-left: 23px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     #button {
