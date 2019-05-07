@@ -28,9 +28,12 @@ body {
     margin: 10px;
     border: 1px solid black;
 }
+.pokemon-wrapper:hover {
+    background-color: darkkhaki;
+}
 
 .pokemon-wrapper p {
-    text-align: right;
+    flex-direction: column;
     font-size: 18px;
 }
 
@@ -52,6 +55,7 @@ table, td,th ,tr {
 }
 
 span {
+    margin: 2px 0;
     border-radius: 4px;
     padding: 0 15px;
 }
@@ -145,15 +149,24 @@ span.dragon {
     background-color: #7038F8;
     border: 1px solid #4924A1;
 }
-
+@media screen and (min-width: 1024px) {
+    #button {
+        margin-left: 25px;
+    }
+}
 @media screen and (max-width: 768px) {
+    #button {
+        margin-left: -10px;
+    }
+}
+@media screen and (max-width: 414px){
     .single-pokemon-container {
         margin-top: 20%;
         position: absolute;
         top: 60%;
-        left: 0%;
+        left: 0%;   
     }
-    #main-content {
-        margin-left: 23%;
+    #button {
+        margin-left: 10px;
     }
 }

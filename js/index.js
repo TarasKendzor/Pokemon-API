@@ -9,24 +9,23 @@ function render(entries) {
         function getItemList(el) {
             let parentDiv = document.getElementById('main-block')
             let rend = document.createElement('div');
-            rend.classList.add('pokemon-wrapper', el.types[0].type.name)
+            let wrapperClasses = ['pokemon-wrapper','col-12','col-sm-12','col-md-4','col-lg-4','col-xl-3']
+            rend.classList.add(...wrapperClasses, el.types[0].type.name)
+            
             let blockContent = parentDiv.appendChild(rend);
             let secondType = el.types[1];
             if (secondType != undefined) {
               secondType = el.types[1].type.name;
             }
-              
+
             blockContent.innerHTML = `
-         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"> 
-            <img src="${el.sprites.front_shiny}">
+               <img src="${el.sprites.front_shiny}">
                <p class ="mx-auto text-center item-name">${el.name} </p>
                <p class ="mx-auto text-center item-type">
                   <span class="${el.types[0].type.name} ">${el.types[0].type.name}</span>
                   <span  class="${secondType} type-select">${secondType}</span> 
-                </p>
-               
-         </div>
-        `
+               </p>
+            `
         let typeSelect = document.getElementsByClassName('type-select');
              for (let i =0; i < typeSelect.length; i++) {
               if ( typeSelect[i].innerHTML === 'undefined') {
@@ -112,8 +111,14 @@ function filterPocemonsByType(el) {
 
 let selected = document.querySelector('select')
    selected.addEventListener('change', function() {
+       if(selected.value == "Select Type"){
+       for (let el of document.querySelectorAll('.pokemon-wrapper'))
+        el.style.display = 'block';
+       } else {
     for (let el of document.querySelectorAll(`.pokemon-wrapper:not(.${selected.value})`))
         el.style.display = 'none';
     for (let el of document.querySelectorAll(`.pokemon-wrapper.${selected.value}`))
         el.style.display = 'block';
+       }
 })
+  
