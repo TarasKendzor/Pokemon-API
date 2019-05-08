@@ -10,12 +10,13 @@ function render(entries) {
             let parentDiv = document.getElementById('main-block')
             let rend = document.createElement('div');
             let wrapperClasses = ['pokemon-wrapper','col-12','col-sm-12','col-md-4','col-lg-4','col-xl-3']
-            rend.classList.add(...wrapperClasses, el.types[0].type.name)
-            
             let blockContent = parentDiv.appendChild(rend);
             let secondType = el.types[1];
             if (secondType != undefined) {
               secondType = el.types[1].type.name;
+              rend.classList.add(...wrapperClasses, el.types[0].type.name, secondType)
+            } else {
+              rend.classList.add(...wrapperClasses, el.types[0].type.name)
             }
 
             blockContent.innerHTML = `
